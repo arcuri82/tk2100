@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Invert Text</title>
+
+    <script>
+        clearText = function(){
+
+            var textArea = document.getElementById("textId");
+            var resultArea = document.getElementById("resultId");
+
+            textArea.value = '';
+            resultArea.value = '';
+        };
+
+        invert = function(){
+
+            var textArea = document.getElementById("textId");
+            var resultArea = document.getElementById("resultId");
+
+            var textArray = textArea.value.split('');
+            var result =  "";
+
+            for(var i=0; i < textArray.length; i++){
+                result = textArray[i] + result;
+            }
+
+            resultArea.value = result;
+        };
+    </script>
+
+</head>
+<body>
+
+    <h2>Invert Text</h2>
+
+    Text to invert:
+    <textarea id="textId"></textarea>
+
+
+    Result:
+    <textarea id="resultId" readonly></textarea>
+
+
+    <div id="invertBtnId" onclick="invert()">Invert</div>
+
+    <div id="clearBtnId" onclick="clearText()">Clear</div>
+
+
+</body>
+
+</html>
