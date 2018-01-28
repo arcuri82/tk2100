@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Invert Text</title>
+        <style>
+
+            html,body{
+                margin: 0px;
+                background-color: rgb(51, 147, 255);
+            }
+
+            .container{
+                margin-left: 30%;
+                margin-top: 5%;
+                font-size: 1.5em;
+
+            }
+
+            .textAreas{
+                width: 250px;
+                height: 100px;
+                font-size: 1em;
+            }
+
+            .btn{
+                border: 3px solid black;
+                border-radius: 5px;
+                width: 80px;
+                float: left;
+                display: inline-block;
+                margin-right: 15px;
+                text-align: center;
+            }
+
+        </style>
+        <script>
+            clearText = function(){
+
+                var textArea = document.getElementById("textId");
+                var resultArea = document.getElementById("resultId");
+
+                textArea.value = '';
+                resultArea.value = '';
+            };
+
+            encode = function(){
+                transform(+7)
+            };
+
+            decode = function(){
+                transform(-7)
+            };
+
+            transform = function(delta){
+
+                var textArea = document.getElementById("textId");
+                var resultArea = document.getElementById("resultId");
+
+                var textArray = textArea.value.split('');
+                var result =  "";
+
+                for(var i=0; i < textArray.length; i++){
+
+                    var x = textArray[i];
+                    var code = textArray[i].charCodeAt(0);
+                    var min  = 33; //inclusive
+                    var max = 126; //inclusive
+                    var range = max - min + 1;
+
+                    if(code >= min && code <= max){
+
+                        var t = ((code - min) + delta) % range;
+                        if( t < 0){
+                            t += range;
+                        }
+
+                        t += min;
+
+                        x = String.fromCharCode(t);
+                    }
+
+                    result += x;
+                }
+
+                resultArea.value = result;
+            };
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Encode/Decode Text</h2>
+            <div>
+                Text to encode/decode: <br>
+
+                <textarea class="textAreas" id="textId"></textarea><br>
+
+                Result: <br>
+
+                <textarea class="textAreas" id="resultId" readonly></textarea>
+                <br>
+            </div>
+
+            <div  onclick="encode()" class="btn">Encode</div>
+            <div  onclick="decode()" class="btn">Decode</div>
+            <div  onclick="clearText()" class="btn">Clear</div>
+        </div>
+    </body>
+</html>
