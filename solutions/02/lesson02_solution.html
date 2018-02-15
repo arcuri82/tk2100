@@ -48,12 +48,21 @@
                 resultArea.value = '';
             };
 
+            /*
+                encoding and decoding is just the same function, but
+                one called with the negative value for the shift.
+                Ie, if encoding means adding +7, then decoding means
+                subtracting 7.
+                So, to avoid duplicate code, we just have such behavior
+                in a different method that take the shift as input
+             */
+
             encode = function(){
-                transform(+7)
+                transform(+7);
             };
 
             decode = function(){
-                transform(-7)
+                transform(-7);
             };
 
             transform = function(delta){
@@ -66,21 +75,73 @@
 
                 for(var i=0; i < textArray.length; i++){
 
+                    //the current char we want to encrypt
                     var x = textArray[i];
+
+                    //we want to read the char as an integer
                     var code = textArray[i].charCodeAt(0);
+
+                    //this are the ranges we want to deal with,
+                    //which are the printable ASCII ones
                     var min  = 33; //inclusive
                     var max = 126; //inclusive
+
+                    /*
+                        this is the range of chars that we want to encrypt,
+                        ie the number of chars between min and max included.
+
+                        This is 94. I could hard-code it, but I just want
+                        to show how it is computed (and it avoids possible
+                        bugs if I got the wrong constant)
+                     */
                     var range = max - min + 1;
 
                     if(code >= min && code <= max){
+                        //if outside min/max, ignore it
+
+                        /*
+                            We need to do the module % over the range,
+                            and not the whole 0-127.
+                            The reason is that, when we go over in the sum 126,
+                            the next value should not start from 0, but rather 33.
+                            So, before the module operator, we subtract the min,
+                            and we add it afterwards.
+
+                            Ex. assume code=100, and delta=+5, so:
+                            ->  code - min = 67
+                            -> (code - min) + delta = 72
+                            -> 72 % 94 = 94
+                            -> 72 + 33 = 105
+
+                            Point is, if the sum +delta does not "overflow",
+                            then we do not need the module %.
+
+                            On the other hand, if code=126 (ie the last printable
+                            char), we would have:
+                            ->  126 - 33 = 93
+                            -> (code - min) + 5 = 98
+                            -> 98 % 94 = 4
+                            -> 4 + 33 = 37
+
+                            37 is the 5th printable char (33 is first, 34 second,
+                            35 third, 36 fourth)
+                         */
 
                         var t = ((code - min) + delta) % range;
+
+                        /*
+                            Need to handle the case when we decrypt, in which
+                            t can become negative. In such case, we do add
+                            the range itself, ie x%m == (x+m)%m, to make it
+                            positive.
+                         */
                         if( t < 0){
                             t += range;
                         }
 
                         t += min;
 
+                        //convert back from number to char
                         x = String.fromCharCode(t);
                     }
 

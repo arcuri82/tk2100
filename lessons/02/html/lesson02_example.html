@@ -39,7 +39,46 @@
 
         </style>
         <script>
+            /*
+                JavaScript code can be in its own file(s), and imported
+                like images/CSS/etc.
+                Or it can be embedded directly in the HTML file inside
+                a <script> tag.
+
+                Usually you would have it in a different file, but, for
+                this example, to have it self-contained, we just embed it.
+             */
+
+
+            /*
+                Here we declare two functions.
+
+                A function declaration will be in the form:
+
+                X = function(Y){...}
+
+                where X is the name of the function, and Y is 0 or more
+                input parameters.
+
+                So, the following does declare a method called "clearText"
+                with no input parameters
+             */
+
             clearText = function(){
+
+                /*
+                    To manipulate the DOM, we can refer to the "document"
+                    object, which is a variable provided by the environment
+                    (we do not need to create it by ourselves).
+
+                    We use the keyword "var" to declare that the scope
+                    of this variable is local to this function.
+                    If you do not use "var", it would be a global scope (which
+                    is bad, but not an issue here in this example).
+
+                    Note: JavaScript is "dynamically typed", which means we
+                    do not declare the type of a variable when we create it.
+                 */
 
                 var textArea = document.getElementById("textId");
                 var resultArea = document.getElementById("resultId");
@@ -53,10 +92,39 @@
                 var textArea = document.getElementById("textId");
                 var resultArea = document.getElementById("resultId");
 
+                /*
+                    textArea here is an object representing the state of
+                    the tag with id "textId".
+                    Calling the field ".value" on such object returns
+                    a "string" representation of its content.
+                    From this string, we want to have an array with 1
+                    letter per position.
+                    The reason is that we want to access it one char at
+                    a time (another approach would be to  use [] directly
+                    on the string, but that might be slightly confusing
+                    when comparing with other programming languages...).
+                    So, we want to go from a string object to an array
+                    of chars. We do that by calling the method .split('')
+                    on such string
+                 */
+
                 var textArray = textArea.value.split('');
                 var result =  "";
 
+                /*
+                    Being an array, we can query its length by accessing the
+                    variable ".length". So we can iterate each element in
+                    the array by using a for-loop.
+                    The content at position "i" (which will be one single
+                    char) can be accessed by using "[i]"
+                 */
                 for(var i=0; i < textArray.length; i++){
+                    /*
+                        Using + here does mean that we concatenate the
+                        char at position "i" with the current string
+                        "result". The resulting string of this concatenation
+                        is then saved back in the variable "result".
+                     */
                     result = textArray[i] + result;
                 }
 
