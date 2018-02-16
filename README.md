@@ -13,4 +13,4 @@ The material in this repository is still under construction.
 
 * Lesson 03: Operating Systems, Bash and Docker [[pdf]](lessons/03/lesson_03_os.pdf), [[exercise]](exercises/03/ex_03.md) 
 
-* Lesson 04: Malware [[pdf]](lessons/04/lesson_04_malware.pdf) 
+* Lesson 04: Malware and JavaScript [[pdf]](lessons/04/lesson_04_malware.pdf), [[exercise]](exercises/04/ex_04.md) 
