@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Quiz Game</title>
+    <style>
+        html, body {
+            margin: 0px;
+            background-color: rgb(243, 239, 231);
+            color: rgb(71, 53, 25);
+            text-align: center;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        a:visited {
+            color: rgb(71, 53, 25);
+        }
+
+
+        .gameBtn {
+            height: 50px;
+            background-color: rgb(207, 205, 200);
+            font-size: 1em;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .answer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 35%;
+        }
+
+        .question {
+            display: inline-block;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+    </style>
+    <script>
+
+        getDefaultQuiz = function () {
+            return {
+                "question": "foo",
+                "answer_0": "a",
+                "answer_1": "b",
+                "answer_2": "c",
+                "answer_3": "d",
+                "indexOfRightAnswer": 2
+            };
+        };
+
+        getQuiz = function () {
+            //TODO
+            return {}
+        };
+
+
+        answerTag = function (prefix, answer, correct) {
+
+            var onclick;
+
+            if(correct) {
+                onclick = "alert('Correct!!!');  displayNewQuiz();";
+            } else {
+                onclick = "alert('Wrong answer');  displayNewQuiz();";
+            }
+
+            var html = "<div class='gameBtn answer' onclick=\""+onclick+"\">" + prefix + answer + "</div>";
+
+            return html;
+        };
+
+        displayDefaultQuiz = function(){
+            displayQuiz(getDefaultQuiz());
+        };
+
+        displayQuiz = function (dto) {
+
+            var html = "<p class='question'>Question: \"" + dto.question + "\"</p>";
+            html += answerTag("A: ", dto.answer_0, dto.indexOfRightAnswer === 0);
+            html += answerTag("B: ", dto.answer_1, dto.indexOfRightAnswer === 1);
+            html += answerTag("C: ", dto.answer_2, dto.indexOfRightAnswer === 2);
+            html += answerTag("D: ", dto.answer_3, dto.indexOfRightAnswer === 3);
+
+            var quizDiv = document.getElementById("quizDivId");
+
+            quizDiv.innerHTML = html;
+        };
+
+        displayNewQuiz = function(){
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                    if (xmlhttp.status == 200) {
+                       displayQuiz(JSON.parse(xmlhttp.response));
+                    } else {
+                        alert('something went wrong: status code ' + xmlhttp.status);
+                    }
+                }
+            };
+
+            xmlhttp.open("GET", "http://localhost:8080/randomQuiz", true);
+            xmlhttp.send();
+        };
+
+
+    </script>
+</head>
+<body>
+
+<h2>Quiz Game</h2>
+
+<div id="quizDivId"/>
+
+<script>
+    // displayDefaultQuiz();
+    displayNewQuiz();
+</script>
+
+</body>
+</html>
