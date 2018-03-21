@@ -21,6 +21,20 @@ public class LoginService {
         return loggedInAs != null;
     }
 
+    public boolean signup(String userId, String password){
+
+        try {
+            boolean created = userService.createUser(userId, password);
+            if(! created){
+                return false;
+            }
+        }catch (Exception e){
+            return false;
+        }
+
+        loggedInAs = userId;
+        return true;
+    }
 
     public boolean login(String userId, String password){
 

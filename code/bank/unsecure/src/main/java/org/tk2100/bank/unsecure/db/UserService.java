@@ -80,9 +80,9 @@ public class UserService {
 
         String hash = computeHash(password);
 
-        //SQL-Injection-prone query
+        //WARNING: SQL-Injection-prone query
 
-        Query query = em.createNativeQuery("select * from user_table where userId='"+userId+"' and password='"+hash+"'");
+        Query query = em.createNativeQuery("select * from user_table where USER_ID='"+userId+"' and PASSWORD='"+hash+"'");
 
         return query.getResultList().size() > 0;
     }
@@ -94,7 +94,7 @@ public class UserService {
 
 
 
-    protected String computeHash(String password){
+    private String computeHash(String password){
 
         return DigestUtils.md5Hex(password);
     }

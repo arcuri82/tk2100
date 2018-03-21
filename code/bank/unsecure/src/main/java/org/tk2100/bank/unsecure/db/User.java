@@ -3,6 +3,7 @@ package org.tk2100.bank.unsecure.db;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,11 +14,14 @@ import javax.persistence.Table;
 public class User {
 
     @Id
+    @Column(name = "USER_ID")
     private String userId;
 
     @NotBlank
+    @Column(name = "PASSWORD")
     private String password;
 
+    @Column(name = "BALANCE")
     private int balance;
 
     public User(){}
