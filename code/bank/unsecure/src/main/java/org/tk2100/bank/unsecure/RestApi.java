@@ -62,7 +62,7 @@ public class RestApi {
 
         boolean success = userService.transferMoney(userId, to, amount);
 
-        return ResponseEntity.status(success ? 200 : 400).build();
+        return ResponseEntity.status(success ? 204 : 400).build();
     }
 
     @GetMapping(path = "/user")

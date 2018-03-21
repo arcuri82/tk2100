@@ -116,7 +116,7 @@
 
                 xmlhttp.onreadystatechange = function() {
                     if (xmlhttp.readyState === XMLHttpRequest.DONE) {
-                        if (xmlhttp.status !== 200) {
+                        if (xmlhttp.status !== 204) {
                             alert('Error when trying to transfer money');
                         } else {
                             getUserInfo();
