@@ -40,5 +40,27 @@ function sendMsg(){
     stompClient.send("/ws-api/message", {}, JSON.stringify(dto));
 }
 
+function retrieveLatest(){
 
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+            if (xmlhttp.status === 200) {
+                var list = JSON.parse(xmlhttp.response);
+                for(var i=0; i<list.length; i++){
+                    updateMessages(list[i]);
+                }
+            } else {
+                alert('Issue when connecting to server');
+            }
+        }
+    };
+
+    xmlhttp.open("GET", "/api/lastMessages", true);
+    xmlhttp.send();
+}
+
+retrieveLatest();
 connect();
