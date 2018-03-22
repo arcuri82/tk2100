@@ -30,9 +30,9 @@ The material in this repository is still under construction.
 
 ## Tentative Remaining Schedule (subject to changes)
 
-* Lesson 08: Web Applications, HTTP and HTTPS 
+* Lesson 08: HTTP and Web Applications 
 
-* Lesson 09: HTTP Sessions, Cookies and CSRF
+* Lesson 09: Session Cookies, CORS, CSRF and HTTPS
 
 * Lesson 10: XSS and Input Sanitisation
 

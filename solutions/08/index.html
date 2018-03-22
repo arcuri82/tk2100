@@ -96,8 +96,8 @@
             var xmlhttp = new XMLHttpRequest();
 
             xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                    if (xmlhttp.status == 200) {
+                if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+                    if (xmlhttp.status === 200) {
                        displayQuiz(JSON.parse(xmlhttp.response));
                     } else {
                         alert('something went wrong: status code ' + xmlhttp.status);
