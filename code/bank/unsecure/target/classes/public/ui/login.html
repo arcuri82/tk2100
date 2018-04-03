@@ -9,9 +9,10 @@
         <link rel="stylesheet" type="text/css" href="/ui/style.css">
         <title>LogIn/SignUp</title>
 
-    </head>
 
+    </head>
     <body>
+
 
         <div>
             <p class="header">Your Bank</p>
@@ -19,18 +20,18 @@
 
         <div class="mainContent">
 
-            Username:
-            <input type="text" id="userId" class="input"/><br>
+        Username:
+        <input type="text" id="userId" class="input"/><br>
 
-            Password:
-            <input type="password" id="passwordId"/><br>
+        Password:
+        <input type="password" id="passwordId"/><br>
 
-            <div class="btn" onclick="doLogin()">Log In</div>
-            <div class="btn" onclick="doSignup()">Sign Up</div>
+        <div class="btn" onclick="doLogin()">Log In</div>
+        <div class="btn" onclick="doSignup()">Sign Up</div>
 
         </div>
-
         <script>
+
 
             doLogin = function(){
                 doPostWithLoginPassword("/api/login");
@@ -67,5 +68,4 @@
         </script>
 
     </body>
-
 </html>
