@@ -27,6 +27,9 @@ The material in this repository is still under construction.
 * Lesson 07: DNS and Phishing
 [[pdf]](lessons/07/lesson_07_network_2.pdf), [[exercise]](exercises/07/ex_07.md)
 
+* Lesson 08: HTTP and Web Applications 
+[[pdf]](lessons/08/lesson_08_web.pdf), [[exercise]](exercises/08/ex_08.md)
+
 
 ## Tentative Remaining Schedule (subject to changes)
 

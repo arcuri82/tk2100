@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Quiz Game</title>
+    <style>
+        html, body {
+            margin: 0px;
+            background-color: rgb(243, 239, 231);
+            color: rgb(71, 53, 25);
+            text-align: center;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        a:visited {
+            color: rgb(71, 53, 25);
+        }
+
+
+        .gameBtn {
+            height: 50px;
+            background-color: rgb(207, 205, 200);
+            font-size: 1em;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .answer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .question {
+            display: inline-block;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+    </style>
+    <script>
+
+        getDefaultQuiz = function () {
+            return {
+                "question": "What is the result of 1+1",
+                "answer_0": "3",
+                "answer_1": "3, but only for large values of 1",
+                "answer_2": "2",
+                "answer_3": "42",
+                "indexOfRightAnswer": 2
+            };
+        };
+
+        /*
+            prefix -> eg "A:", "B:", "C:" and "D:"
+            answer -> string of the answer for the quiz
+            correct -> boolean, whether answer is the correct one
+
+            return -> string of HTML tag with "onclick" handler registered,
+                      with alert pop-up stating whether correct or wrong
+         */
+        answerTag = function (prefix, answer, correct) {
+            //TODO
+
+            var html = "";
+
+            return html;
+        };
+
+        displayDefaultQuiz = function(){
+            displayQuiz(getDefaultQuiz());
+        };
+
+        /*
+            dto -> data transfer object, the JSON coming from the REST API
+         */
+        displayQuiz = function (dto) {
+
+            var quizDiv = document.getElementById("quizDivId");
+
+            //TODO
+        };
+
+        displayNewQuiz = function(){
+            var xmlhttp = new XMLHttpRequest();
+
+            //TODO AJAX call to REST API, and call displayQuiz(dto) with
+            //the result
+        };
+
+
+    </script>
+</head>
+<body>
+
+<h2>Quiz Game</h2>
+
+<div id="quizDivId"/>
+
+<script>
+     displayDefaultQuiz();
+
+     /*
+        uncomment, and use this latter (comment one above) once you are
+        able to render the default quiz
+      */
+     //displayNewQuiz();
+</script>
+
+</body>
+</html>
