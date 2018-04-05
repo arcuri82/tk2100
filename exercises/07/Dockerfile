@@ -7,6 +7,6 @@ RUN apt-get -y update && apt-get install -y metasploit-framework
 
 # For the "setoolkit", it seems we can't use "apt-get", and rather need to build it manually.
 # So, we follow instructions for installation from their web site, which states to
-# use Git to dowload the source code, and install manually by using a Python script
+# use Git to download the source code, and install it manually by using a Python script
 RUN git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
 RUN cd set; python setup.py install
