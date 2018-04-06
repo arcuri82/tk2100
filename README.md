@@ -30,8 +30,7 @@ The material in this repository is still under construction.
 * Lesson 08: HTTP and Web Applications 
 [[pdf]](lessons/08/lesson_08_web.pdf), [[exercise]](exercises/08/ex_08.md)
 
-* Lesson 09: HTTPS and Sessions  
-[[pdf]](lessons/09/lesson_09_session.pdf), [[exercise]](exercises/09/ex_09.md)
+* Lesson 09: HTTPS and Sessions [[pdf]](lessons/09/lesson_09_session.pdf), [[exercise]](exercises/09/ex_09.md)
 
 
 ## Tentative Remaining Schedule (subject to changes)
