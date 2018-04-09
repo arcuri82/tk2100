@@ -57,7 +57,7 @@
                 var userId = document.getElementById("userId").value;
                 var password = document.getElementById("passwordId").value;
 
-                var payload = "userId=" + encodeURI(userId) +"&password="+encodeURI(password);
+                var payload = "userId=" + encodeURIComponent(userId) +"&password="+encodeURIComponent(password);
 
                 xmlhttp.open("POST", destination, true);
                 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
