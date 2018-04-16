@@ -32,12 +32,11 @@ The material in this repository is still under construction.
 
 * Lesson 09: HTTPS and Sessions [[pdf]](lessons/09/lesson_09_session.pdf), [[exercise]](exercises/09/ex_09.md)
 
+* Lesson 10: XSS and Input Sanitisation [[pdf]](lessons/10/lesson_10_xss.pdf), [[exercise]](exercises/10/ex_10.md)
+
 
 ## Tentative Remaining Schedule (subject to changes)
 
-
-* Lesson 10: XSS and Input Sanitisation
-
 * Lesson 11: SQL Injection and Password Handling/Cracking
 
-* Lesson 12: Revision 
+* Lesson 12: Mock Exam and Revision 
